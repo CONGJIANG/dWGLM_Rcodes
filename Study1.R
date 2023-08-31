@@ -3,31 +3,11 @@
 # install.packages("e1071")
 library("e1071")
 options(scipen=200)
-# generate data:
-n <- 5000
-
-X <- runif(n); A <- rbinom(n, 1, X);
-m <- X + log(abs(X)) + (X^3) + A*(-1 + 2*X) 
-p <- sigmoid(m)
-Y <- rbinom(n, 1, p);
-
-# Step1
-treat.mod <- glm(A ~ X , family = 'binomial')
-w = abs(A - fitted(treat.mod))
-(par <- as.vector(glm(Y ~ X + A + I(A*X), weights = w, family=quasibinomial(link = "probit"))$coefficients))
-# Step2
-mu <- cbind(1, X, (1 - A), (1 - A)*X) %*% par
-k_mu <- dsigmoid(mu)
-w_n = abs(A - fitted(treat.mod)) * k_mu
-# Stpe3
-as.vector(glm(Y ~ X + A + I(A*X), weights = w_n, family=quasibinomial(link = "probit"))$coefficients)
-
-
-
 ##############################################
 ###### Scenario 1
 ##############################################
 ###### Scenario 1
+r <- 1000
 res1_0 <- matrix(NA, nrow = r, ncol = 4)
 colnames(res1_0) <- c("X_hat", "beta_hat", "psi1_hat","psi2_hat")
 
@@ -57,12 +37,11 @@ for (i in 1:r) {
   # Step3
   res1_2[i,] <- glm(Y ~ X + A + I(A*X), weights = w_n, family=quasibinomial(link = "probit"))$coefficients
 }
-
+apply(res1_0, 2 , mean)
 apply(res1_1, 2 , mean)
 apply(res1_2, 2 , mean)
-# logistic regression
-r <- 1000
 
+# logistic regression
 res1_00 <- matrix(NA, nrow = r, ncol = 4)
 colnames(res1_00) <- c("X_hat", "beta_hat", "psi1_hat","psi2_hat")
 
@@ -92,6 +71,7 @@ for (i in 1:r) {
   res1_4[i,] <- glm(Y ~ X + A + I(A*X), weights = w_n, family=quasibinomial(link = "logit"))$coefficients
 }
 
+apply(res1_00, 2 , mean)
 apply(res1_3, 2 , mean)
 apply(res1_4, 2 , mean)
 
