@@ -1,7 +1,7 @@
 # Author: Cong Jiang (c55jiang@uwaterloo.ca)
 # Article:Doubly-Robust Dynamic Treatment Regimen Estimation with Binary Outcomes
 # install.packages("e1071")
-install.packages("degree")
+install.packages("drgee")
 library("e1071")
 library("rgenoud")
 library("glmnet")
@@ -99,18 +99,19 @@ for (i in 1:r) {
 }
 
 
-apply(na.omit(res.glm00), 2 , mean)
 apply(na.omit(res.glm01), 2 , mean)
 apply(na.omit(res.glm02), 2 , mean)
 apply(na.omit(res.AIPWE), 2 , mean)
 apply(na.omit(res.EC), 2 , mean)
 
-apply(res.glm00, 2 , sd)
 apply(res.glm01, 2 , sd)
 apply(res.glm02, 2 , sd)
 apply(res.AIPWE, 2 , sd)
 apply(res.EC, 2 , sd)
 
-mean(na.omit(ratio1)); mean(na.omit(ratio2)); mean(na.omit(ratio3)); mean(na.omit(ratio4)); mean(na.omit(ratio5))
+mean(na.omit(ratio2)); mean(na.omit(ratio3)); mean(na.omit(ratio4)); mean(na.omit(ratio5))
+
+
+
 
 
