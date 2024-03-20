@@ -1,6 +1,6 @@
 # Author: Cong Jiang (c55jiang@uwaterloo.ca)
-# Article: Doubly-robust dynamic treatment regimen 
-
+# Article: Novel Robust Dynamic Treatment Regimen Estimation for Discrete Outcome: An application to smoking cessation using e-cigarettes
+# 
 #require("e1071")
 #require("vioplot")
 dWGLM <- function(outcome.mod, blip.mod, treat.mod, tf.mod, k, data, R = 25) {
