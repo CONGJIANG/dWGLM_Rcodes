@@ -1,6 +1,6 @@
 ############################################################################
 # Author: Cong Jiang (c55jiang@uwaterloo.ca)
-# Article:Doubly-Robust Dynamic Treatment Regimen Estimation with Binary Outcomes
+# Article:Novel Robust Dynamic Treatment Regimen Estimation for Discrete Outcome: An application to smoking cessation using e-cigarettes
 install.packages("e1071")
 install.packages("drgee")
 library("e1071")
@@ -132,7 +132,7 @@ mean(na.omit(ratio1)); mean(na.omit(ratio2)); mean(na.omit(ratio3)); mean(na.omi
 
 ############################################################################
 # Author: Cong Jiang (c55jiang@uwaterloo.ca)
-# Article:Doubly-Robust Dynamic Treatment Regimen Estimation with Binary Outcomes
+# Article:Novel Robust Dynamic Treatment Regimen Estimation for Discrete Outcome: An application to smoking cessation using e-cigarettes
 # install.packages("e1071")
 install.packages("drgee")
 library("e1071")
