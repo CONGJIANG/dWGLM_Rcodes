@@ -1,6 +1,6 @@
 # Author: Cong Jiang (c55jiang@uwaterloo.ca)
-# Article: Doubly-robust dynamic treatment regimen 
-# dynamic generalized linear model (dWGLM)
+# Article: Novel Robust Dynamic Treatment Regimen Estimation for Discrete Outcome: An application to smoking cessation using e-cigarettes
+# dynamic weighted generalized linear model (dWGLM)
 # install.packages("e1071")
 library("e1071")
 library("vioplot")
