@@ -94,8 +94,8 @@ for (i in 1:r) {
   # models to be passed to dWGLM
   outcome.mod <- Y ~ 1
   blip.mod <- list(~X1,~X2)
-  treat.mod <- list(A1~ X1, A2~ X2 + sin(X2) + I(X2^2))
-  tf.mod <- list(~ X1 + I(log(abs(X1))) + I(cos(pi*X1)), ~ X1 * A1 + X2)
+  treat.mod <- list(A1~ X1 + I(X1^2), A2~ X2)
+  tf.mod <- list(~ X1, ~ X1 * A1 + X2 + I(log(abs(X1))) + I(cos(pi*X1)))
   mydata <- data.frame(X1,X2,A1,A2,Y)
   k <- 2
   
